@@ -1,0 +1,381 @@
+/*@charset "UTF-8";*/
+body
+{
+	margin:0px;
+	padding:0px;
+	background-color: #E2E2E2;
+    font-family: "微软雅黑";
+}
+
+.clearfix:after
+{
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearboth
+{
+    clear:both;
+}
+
+li
+{
+	display:inline-block;
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+.wrapper
+{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    width: 960px;
+	height:1300px;
+}
+.content
+{
+	margin:0px 45px 0px 45px;
+	padding:15px 0px 70px 0px;
+	position:relative;
+}
+/*.topinfo
+{
+	position:relative;
+	margin:50px 0px 0px 0px;
+	padding:0px 0px 10px 0px;
+}*/
+.topbar
+{
+	height:40px;
+	-moz-border-top-left-radius: 3px;
+	-moz-border-top-right-radius: 3px;
+	-moz-border-bottom-right-radius: 3px;
+	-moz-border-bottom-left-radius: 3px;
+	/*Safari, Chrome*/
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border:1px solid #ccc;
+	background-color:#f6f7f7;
+	position:relative;
+	margin:50px 0px 0px 0px;
+	padding:0px 0px 10px 0px;
+}
+.topbar-text
+{
+	font-size:12px;
+	color:#000;
+	display:inline-block;
+	margin:11px 0px 0px 10px;
+	letter-spacing:1px;
+}
+.topbar-link
+{
+	position:absolute;
+	top:6px;
+	right:10px;
+}
+.topbar-link li
+{
+	margin-left:10px;
+}
+. -link a:link
+{
+	font-size:12px;
+    color:#0544c3;
+	text-decoration:underline;
+	outline: none;
+	letter-spacing:1px;
+}
+.bluetext-link a:visited
+{
+    color:#0544c3;
+}
+.bluetext-link a:hover
+{
+    color:#ff0000;
+}
+.bluetext-link a:active;
+{
+    color:#0544c3;
+}
+.number
+{
+	height:30px;
+	margin-top:15px;
+	text-align:right;
+}
+.number li
+{
+	font-size:12px;
+	display:inline-block;
+}
+.number input
+{
+	width:60px;
+	height:25px;
+}
+.text-red
+{
+	color:#ff0000;
+	letter-spacing:1px;
+}
+
+.sign
+{
+	font-size:36px;
+	font-weight:bold;
+	color:#ff0000;
+	text-align:center;
+	padding:20px 0px 20px 0px;
+}
+.signtext
+{
+	margin-left:60px;
+}
+.hr-office
+{
+	margin:10px 0px 0px 0px;
+	position:relative;
+}
+.hr-office div
+{
+	font-size:12px;
+}
+.date
+{
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+.sign-content
+{
+	display:table;
+	width:100%;
+	font-size:12px;
+	border-top:1px solid #ff0000;
+	border-right:1px solid #ff0000;
+	border-bottom:1px solid #ff0000;
+	margin:20px 0px 0px 0px;
+}
+.instructions
+{
+	display:table-cell;
+	border-left:1px solid #ff0000;
+	padding:10px 0px 0px 0px;
+	width:50%;
+}
+.opinion
+{
+	display:table-cell;
+	padding:10px 0px 0px 10px;
+	width:50%;
+	border-left:1px solid #ff0000;
+}
+.opinion div
+{
+	margin-bottom:10px;
+}
+.opinion-textarea
+{
+	text-algin:left;
+}
+.selection-unit li
+{
+	display:block;
+	line-height:23px;
+}
+.labeltext
+{
+	padding:5px 0px 0px 0px;
+	letter-spacing:1px;
+	font-weight:normal;
+}
+.leader-link
+{
+	text-align:left;
+	margin:25px 0px 0px 0px;
+}
+.instructions-title
+{
+	height:460px;
+	padding:0px 0px 0px 10px;
+	
+}
+.opinion-title
+{
+	height:30px;
+	line-height:30px;
+}
+.opinionlitext
+{
+	padding-top:2px;
+}
+.office-text li
+{
+	display:inline-block;
+	margin-right:15px;
+}
+.text-bold
+{
+	font-weight:bold;
+}
+.opiniondiv-text li
+{
+	display:inline-block;
+	margin-right:10px;
+}
+.opiniondiv li
+{
+	display:inline-block;
+}
+.opiniondiv label
+{
+	font-weight:normal;
+}
+.opiniondiv li input
+{
+	width:200px;
+}
+.opinionbtn
+{
+	margin-left:185px;
+}
+.isobtn
+{
+	margin-left:10px;
+}
+.isofj
+{
+	margin-right:35px;
+}
+.isotext
+{
+	margin:50px 0px 0px 0px;
+}
+.bottom-info
+{
+	display:table;
+	width:100%;
+	font-size:12px;
+	margin:10px 0px 0px 0px;
+}
+.charge
+{
+	display:table-cell;
+	padding:10px 0px 10px 10px;
+	width:50%;
+}
+.contact
+{
+	display:table-cell;
+	padding:10px 0px 0px 10px;
+	width:50%;
+}
+.opinion-btn
+{
+	position:absolute;
+	right:50px;
+	top:11px;
+}
+.instructions-btn
+{
+	position:absolute;
+	right:10px;
+	top:11px;
+}
+.signunit
+{
+	position:relative;
+}
+.signunit textarea
+{
+	height:120px;
+}
+.instructionsdiv
+{
+	position:relative;
+	line-height:35px;
+	border-top:1px solid #ff0000;
+	padding:5px 0px 8px 10px;
+	display:block;
+}
+.instructionsdiv li
+{
+	display:inline-block;
+}
+.topic-content
+{
+	display:inline-block;
+	margin-left:5px;
+}
+.topic
+{
+	display:inline-block;
+	vertical-align:top;
+} 
+.topic-content li
+{
+	display:block;
+	height:25px;
+}
+.bottom-btn
+{
+	text-align:center;
+	margin-top:40px;
+}
+
+.btn 
+{
+    line-height: 1.4;
+}
+
+.btn-default {
+    background-repeat: repeat-x;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+}
+.text-blue
+{
+    color:#03C;
+}
+/*公司领导批示样式*/
+.leader
+{
+    position:relative;
+	margin-top:25px;
+}
+.leader-checkbox
+{
+	position:absolute;
+	right:50px;
+	top:4px;
+}
+.leader-input
+{
+    width:60px;
+}
+.leader-textarea
+{
+    width:375px;
+	margin-top:5px;
+}
+.leader-text
+{
+    margin-top:25px;
+}
+.leader-data
+{
+    margin-top:10px;
+}

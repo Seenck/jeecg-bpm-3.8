@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<!-- <context:component-scan base-package="org.jeecgframework.workflow.*" />
+	<context:component-scan base-package="jeecg.workflow.*" /> -->
+	<context:component-scan base-package="org.jeecgframework.workflow.*,jeecg.workflow.*">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- bizflow加载service,此时要排除要controller,因为controller已经spring-mvc中加载过了 -->
+	<context:component-scan base-package="jeecg.bizflow.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 创建流程引擎配置对象 -->
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="dataSource" ref="dataSource" />
+		<property name="history" value="full"></property>
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="false" />
+        <property name="processDefinitionCacheLimit" value="10"/>
+        <!-- 配置Activiti全局事件监听器 -->
+        <property name="eventListeners">  
+	      <list>  
+	        <ref bean="globalEventListener"/>  
+	      </list>  
+	    </property> 
+        <!-- 生成流程图的字体 -->
+        <property name="activityFontName" value="宋体"/>
+        <property name="labelFontName" value="宋体"/>
+		 <!-- 暴露给流程在表达式可以直接使用的spring beans -->
+    	 <property name="beans">
+    	 	<map>
+    	 		<entry key="flowUtil" >
+    	 			<bean class="org.jeecgframework.workflow.util.FlowUtil"></bean>
+    	 		</entry>
+    	 		<entry key="QbUtil" >
+    	 			<bean class="jeecg.workflow.util.QbUtil"></bean>
+    	 		</entry>
+    	 	</map>
+    	 </property>
+		<!-- 使用spring的自动资源加载部署方式部署 -->
+		<!-- <property name="deploymentResources" value="classpath*:com/renfang/test/*.bpmn20.xml" /> -->
+	</bean>
+	<!-- 创建流程引擎对象 -->
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+	<bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService" />
+	<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+	<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+	<bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+	
+	<!-- Activiti全局事件监听器 -->
+	<bean id="globalEventListener" class="org.jeecgframework.workflow.listener.GlobalEventListener">  
+	   <property name="handlers">  
+		  <map>  
+		       <!-- 任务被完成了。它会在ENTITY_DELETE事件之前触发。当任务是流程一部分时，事件会在流程继续运行之前， 后续事件将是ACTIVITY_COMPLETE，对应着完成任务的节点。 -->
+			   <entry key="TASK_COMPLETED" value="flowTaskCompleteListener"/>  
+		  </map>  
+	 </property>  
+  </bean>  
+
+</beans>
+
+

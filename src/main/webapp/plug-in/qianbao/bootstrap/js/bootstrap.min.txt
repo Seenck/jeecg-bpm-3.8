@@ -1,0 +1,5 @@
+﻿已隔离文件
+
+Microsoft Forefront Protection for Exchange Server 删除了一个文件，因为发现该文件与一个筛选器匹配。
+文件名:“QianBao.rar->QianBao\QianBao\bootstrap\js\bootstrap.min.js”
+筛选器名称:“文件筛选器= Other zip: *.js”

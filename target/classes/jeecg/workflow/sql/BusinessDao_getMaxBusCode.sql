@@ -1,0 +1,1 @@
+select MAX(business_code) from business_info

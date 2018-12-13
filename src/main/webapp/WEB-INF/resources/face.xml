@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FaceManager xmlVersion="20100901">
+<Attributes dayOfMonth="7" homeTabTitle="FineReport产品演示" homeURLPath="?reportlet=/demo/analytics/dashboard/dashboard.cpt&amp;op=form"/>
+<FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="报表展示"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="基本明细汇总表"/>
+<ReportletInfo reporletPath="/demo/basic/JiBenMingXiHuiZongA.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="段落明细表"/>
+<ReportletInfo reporletPath="/demo/basic/DuanLuoMingXiBiao.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="条件属性预警表"/>
+<ReportletInfo reporletPath="/demo/basic/TiaoJianShuXingYuJing.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="多层统计"/>
+<ReportletInfo reporletPath="/demo/basic/duocenghuizong.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="重复表头"/>
+<ReportletInfo reporletPath="/demo/basic/chongfubiaotou.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="冻结行列报表"/>
+<ReportletInfo reporletPath="/demo/basic/DongJieHangLie.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="多维度横向分片表"/>
+<ReportletInfo reporletPath="/demo/basic/DuoWeiDuFenPian.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="动态折叠树"/>
+<ReportletInfo reporletPath="/demo/basic/Autotree.cpt">
+<Parameters>
+<Parameter>
+<Attributes name="op"/>
+<O>
+<![CDATA[sheet]]></O>
+</Parameter>
+</Parameters>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="同比环比排名表"/>
+<ReportletInfo reporletPath="/demo/basic/TongBiHuanBiPaiMing.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="占比与累计"/>
+<ReportletInfo reporletPath="/demo/basic/leiji.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="数据明细钻取"/>
+<ReportletInfo reporletPath="/demo/basic/chaolian.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="数据钻取排序表"/>
+<ReportletInfo reporletPath="/demo/basic/ZuanQuPaiXu.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="高级条件分组表"/>
+<ReportletInfo reporletPath="/demo/basic/GaoJiTiaoJianFenZu.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="卡片分栏条码表"/>
+<ReportletInfo reporletPath="/demo/basic/KaPianFenLangTiaoMa.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="发票套打表"/>
+<ReportletInfo reporletPath="/demo/basic/FaPiaoTaoDa.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="大文本报表"/>
+<ReportletInfo reporletPath="/demo/basic/Dawenbenfather.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="参数查询"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="自定义时间段查询"/>
+<ReportletInfo reporletPath="/demo/parameter/season.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="简单查询"/>
+<ReportletInfo reporletPath="/demo/parameter/simple.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="复选框多值查询"/>
+<ReportletInfo reporletPath="/demo/parameter/stockledger.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="联动查询"/>
+<ReportletInfo reporletPath="/demo/parameter/connect.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="查询状态设置和多列模糊查询"/>
+<ReportletInfo reporletPath="/demo/parameter/state.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="供应商信息模糊查询"/>
+<ReportletInfo reporletPath="/demo/parameter/query_like.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="库存查询每页显示固定行"/>
+<ReportletInfo reporletPath="/demo/parameter/number.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="动态列查询"/>
+<ReportletInfo reporletPath="/demo/parameter/dongtailie.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="复杂查询之下拉树"/>
+<ReportletInfo reporletPath="/demo/parameter/query_multi.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="复杂查询之动态显示查询按钮"/>
+<ReportletInfo reporletPath="/demo/parameter/query_custom.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="菜单导航"/>
+<ReportletInfo reporletPath="/demo/parameter/caidandaohang.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="数据分析"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="动态仪表盘"/>
+<ReportletInfo reporletPath="/demo/analytics/dashboard/dashboard.cpt">
+<Parameters>
+<Parameter>
+<Attributes name="op"/>
+<O>
+<![CDATA[form]]></O>
+</Parameter>
+</Parameters>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="多维度营收分析"/>
+<ReportletInfo reporletPath="/demo/analytics/multi_report/multi_report.cpt">
+<Parameters>
+<Parameter>
+<Attributes name="op"/>
+<O>
+<![CDATA[form]]></O>
+</Parameter>
+</Parameters>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="二次过滤"/>
+<ReportletInfo reporletPath="/demo/analytics/second/selection.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="财务状况查询分析"/>
+<ReportletInfo reporletPath="/demo/analytics/financial.cpt">
+<Parameters>
+<Parameter>
+<Attributes name="op"/>
+<O>
+<![CDATA[form]]></O>
+</Parameter>
+</Parameters>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="双向折叠树"/>
+<ReportletInfo reporletPath="/demo/analytics/tree/tree.cpt">
+<Parameters>
+<Parameter>
+<Attributes name="op"/>
+<O>
+<![CDATA[form]]></O>
+</Parameter>
+</Parameters>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="填报录入"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="简单自由填报"/>
+<ReportletInfo reporletPath="/demo/form/stuff.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="客户关系复杂填报"/>
+<ReportletInfo reporletPath="/demo/form/Customer.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="客户跟踪数据回填"/>
+<ReportletInfo reporletPath="/demo/form/trkwks.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="固定资产(增删改)"/>
+<ReportletInfo reporletPath="/demo/form/gdzc.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="通讯录(自匹配/excel在线导入)"/>
+<ReportletInfo reporletPath="/demo/form/AutoMatch.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="批量删除"/>
+<ReportletInfo reporletPath="/demo/form/selectdelete.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="主从表多源填报(自动计算/数据校验)"/>
+<ReportletInfo reporletPath="/demo/form/equipmentdetailsform.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WriteReportletDef">
+<Attributes name="集团财务信息(多sheet)"/>
+<ReportletInfo reporletPath="/demo/form/group.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="统计图表"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="柱状图与条形图"/>
+<ReportletInfo reporletPath="/demo/chart/histogram.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="面积图与折线图"/>
+<ReportletInfo reporletPath="/demo/chart/area.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="仪表盘与雷达图"/>
+<ReportletInfo reporletPath="/demo/chart/panel.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="股价图"/>
+<ReportletInfo reporletPath="/demo/chart/stock.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="全距图"/>
+<ReportletInfo reporletPath="/demo/chart/quanju.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="散点图"/>
+<ReportletInfo reporletPath="/demo/chart/scatterplots.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="交叉图表"/>
+<ReportletInfo reporletPath="/demo/chart/crosschart.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="双轴图"/>
+<ReportletInfo reporletPath="/demo/chart/mixed.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="月份查询动态显示"/>
+<ReportletInfo reporletPath="/demo/chart/car3.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="图表热点链接"/>
+<ReportletInfo reporletPath="/demo/chart/hy1.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="在线图表类型切换"/>
+<ReportletInfo reporletPath="/demo/chart/areaChart.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.WebURLDef">
+<Attributes name="动态切换城市统计"/>
+<WebURLAttributes url="${contextPath}/page_demo/alterchart.html"/>
+<Parameters/>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+</FaceNode>
+</FaceManager>

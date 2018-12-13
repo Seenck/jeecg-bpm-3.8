@@ -1,0 +1,400 @@
+ .ztree li span.button.treeCipan_ico_open{margin-right:2px; background: url(img/je.png) no-repeat 0px -1952px !important; vertical-align:top; *vertical-align:middle}
+ .ztree li span.button.treeCipan_ico_close{margin-right:2px; background: url(img/je.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+ .ztree li span.button.jdh_ico_open{margin-right:2px; background: url(img/cipan.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+ .ztree li span.button.jdh_ico_close{margin-right:2px; background: url(img/cipan.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+ .cipan{
+ 	width: 16px;
+    height: 14px;
+    display: inline-block;
+ 	background: url(img/cipan.png) no-repeat scroll 0 0 transparent; 
+ }
+ 
+ .ztree li span.button.treefolder_ico_open{margin-right:2px; background: url(img/folder.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+ .ztree li span.button.treefolder_ico_close{margin-right:2px; background: url(img/folder.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+ .ztree li span.button.treefolder_ico_docu{margin-right:2px; background: url(img/folder.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+ .ztree li .curSelectedNode span.button.treefolder_ico_docu,.ztree li .curSelectedNode span.button.treefolder_ico_open,.ztree li .curSelectedNode span.button.treefolder_ico_close{
+ margin-right:2px; background: url(img/folder-open.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle
+ }
+ 
+ .ztree li span.button.root_close,.ztree li span.button.bottom_close{
+    background: url(img/tree_arrows.gif) no-repeat 0 0;
+}
+ .ztree li span.button.root_close:hover,.ztree li span.button.bottom_close:hover{
+    background: url(img/tree_arrows.gif) no-repeat -32px 0;
+}
+ .ztree li span.button.root_open,.ztree li span.button.bottom_open{
+ 	background: url(img/tree_arrows.gif) no-repeat -16px 0px;
+}
+ .ztree li span.button.root_open:hover,.ztree li span.button.bottom_open:hover{
+ 	background: url(img/tree_arrows.gif) no-repeat -48px 0px;
+}
+
+.icon-add-ty{
+    background: url(img/je.png?version=16) no-repeat 0px -6704px !important;
+}
+.icon-filebase-ty{
+    background: url(img/je.png?version=16) no-repeat 0px -5488px !important;
+}
+.icon-del-ty{
+    background: url(img/je.png?version=16) no-repeat  0px -4640px !important;
+}
+
+.icon-gif{
+	background: url(img/je.png?version=16) 0px -13396px no-repeat !important;
+}
+.icon-img-ty{
+	background: url(img/je.png?version=16) 0px -14548px no-repeat !important;
+}
+.icon-word-ty{
+	background: url(img/je.png?version=16) 0px -14212px no-repeat !important;
+}
+.icon-excel-ty{
+	background: url(img/je.png?version=16) 0px -13348px no-repeat !important;
+}
+.icon-txt-ty{
+	background: url(img/je.png?version=16) 0px -12676px no-repeat !important;
+}
+.icon-pdf-ty{
+	background: url(img/je.png?version=16) 0px -13972px no-repeat !important;
+}
+.icon-ppt-ty{
+	background: url(img/je.png?version=16) 0px -13156px no-repeat !important;
+}
+.icon-unkown-ty{
+	background: url(img/je.png?version=16) 0px -14256px no-repeat !important;
+}
+.icon-downAll-ty{
+	background: url(img/je.png?version=16) 0px -2544px no-repeat !important;
+}
+.icon-cha-ty{
+	background-image: url(img/clear-text-icon.gif);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+
+.clear-select-ty{
+	width: 12px;
+    height: 12px;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    margin-top: 4px;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s linear, visibility .0s linear .35s;
+    -webkit-transition: opacity .35s linear, visibility .0s linear .35s;
+    -moz-transition: opacity .35s linear, visibility .0s linear .35s;
+    -o-transition: opacity .35s linear, visibility .0s linear .35s;
+    -ms-transition: opacity .35s linear, visibility .0s linear .35s;
+    -khtml-transition: opacity .35s linear, visibility .0s linear .35s;
+	left:3px;
+    top:1px;
+    background-color: transparent;
+}
+.clear-select-ty.active{
+	 opacity: 1;
+	 visibility: visible;
+}
+
+.triggle-select-ty{
+	height: 22px;
+	width: 17px;
+    border-width: 0 0 1px;
+    border-color: #b5b8c8;
+    border-style: solid;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    top:6px;
+    right:6px;
+}
+.icon-list-ty{
+	background-image: url(img/form-list-trigger.png);
+}
+.icon-list-ty:hover{
+    background-position: -17px 0;
+    border-color: #7eadd9;
+}
+
+
+/*------------------------添加文件区域样式-begin-------------------------------*/
+  .panel-toolbar-ty{
+  	background-color: rgb(240, 240, 240);
+    border-color: rgb(181, 184, 200);
+    height: 26px;
+    right: auto;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    font-size: 12px;
+    border-style: solid;
+    padding: 2px 0 2px 2px;
+    position: absolute!important;
+    z-index: 1;
+    border-bottom-width: 0!important;
+    border-width: 1px;
+  }
+  .btn-ty{
+ 	display: inline-block;
+    position: relative;
+    zoom: 1;
+    outline: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-decoration: none;
+    border-color: transparent;
+  }
+  
+  .btn-ty:hover{
+    border-color: #81a4d0;
+    background-image: none;
+    background-color: #fffee5;
+     text-decoration: none;
+  }
+      
+  .btn-column {
+    float: left;
+    margin: 0 2px 0 0;
+}
+.btn-ty-small {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 2px 2px 2px 2px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+}
+
+.item-button-ty{
+	height: 16px;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    zoom: 1;
+}
+.item-button-ty-text{
+	font-family: arial, verdana, 宋体, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(51, 51, 51);
+    padding: 0px 4px;
+    text-align: center;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    zoom: 1;
+    line-height: 16px;
+    padding-left: 20px;
+}
+.item-button-ty-icon{
+	margin-top: 0px;
+    width: 16px;
+    height: 16px;
+	background-position: left center;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.panel-content-ty{
+	border-color: rgb(181, 184, 200);
+    width: 100%;
+   height: 120px;
+    left: 0px;
+    top: 26px;
+}
+.panel-content-body{
+    overflow: hidden;
+    position: relative;
+    color: black;
+    font-size: 12px;
+    border-width: 1px;
+    border-style: solid;
+    background: none;
+    background-color: #fff;
+}
+.panel-content-inner-ty{
+	border-width: 0px;
+    overflow: auto;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.panel-content-inner-ty .file-single-ty{
+    border: 1px solid transparent;
+    table-layout: fixed;
+    word-wrap: break-word;
+    float: left;
+    margin: 5px;
+    width: 70px;
+    height:81px;
+}
+
+.panel-content-inner-ty .file-single-ty:hover
+{
+   background: rgb(239, 239, 239);
+}
+
+.file-single-ty:focus,.file-single-ty.active{
+	background: aliceblue;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(34, 138, 233) !important;
+    border-image: initial !important;
+}
+.file-icon-box{
+	margin:0 auto;
+	margin-top:5px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    display: table;
+    height:55px;
+}
+.file-icon-box span{
+ 	display: inline-block;
+	margin-top: 0px;
+    width: 48px;
+    height: 48px;
+}
+.file-name{
+   /*  height: 35px;
+    padding-top: 4px; */
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*------------------------添加文件区域样式-end-------------------------------*/
+
+/*------------------------点击触发的按钮菜单样式-begin-------------------------------*/
+.menu {
+  position: absolute;
+  margin: 0;
+  padding: 2px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+}
+.menu-inline {
+  position: relative;
+}
+.menu-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+.menu-text {
+  height: 20px;
+  line-height: 20px;
+  float: left;
+  padding-left: 28px;
+}
+.menu-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 50%;
+  margin-top: -8px;
+}
+.menu-rightarrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 0;
+  top: 50%;
+  margin-top: -8px;
+}
+.menu-line {
+  position: absolute;
+  left: 26px;
+  top: 0;
+  height: 2000px;
+  font-size: 1px;
+}
+.menu-sep {
+  margin: 3px 0px 3px 25px;
+  font-size: 1px;
+}
+.menu-noline .menu-line {
+  display: none;
+}
+.menu-noline .menu-sep {
+  margin-left: 0;
+  margin-right: 0;
+}
+.menu-active {
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.menu-item-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default;
+}
+.menu-text,
+.menu-text span {
+  font-size: 12px;
+}
+.menu-shadow {
+  position: absolute;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  background: #ccc;
+  -moz-box-shadow: 2px 2px 3px #cccccc;
+  -webkit-box-shadow: 2px 2px 3px #cccccc;
+  box-shadow: 2px 2px 3px #cccccc;
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+/* .menu-rightarrow {
+  background: url('images/menu_arrows.png') no-repeat -32px center;
+} */
+.menu-line {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+}
+.menu-sep {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+}
+.menu {
+  background-color: #fff;
+  border-color: #e6e6e6;
+  color: #333;
+}
+.menu-content {
+  background: #ffffff;
+}
+.menu-item {
+  border-color: transparent;
+  _border-color: #fff;
+}
+.menu-active {
+  border-color: #ddd;
+  color: #00438a;
+  background: #e6e6e6;
+}
+.menu-active-disabled {
+  border-color: transparent;
+  background: transparent;
+  color: #333;
+}
+/*------------------------点击触发的按钮菜单样式-end-------------------------------*/

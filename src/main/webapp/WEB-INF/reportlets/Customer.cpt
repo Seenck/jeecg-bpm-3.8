@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM 填报雇员表]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<WebWriteContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.ui.impl.write.Submit">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[提交]]></Text>
+<IconName>
+<![CDATA[submit]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.write.Verify">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[数据校验]]></Text>
+<IconName>
+<![CDATA[verify]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[打印[客户端]A]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Print">
+<WidgetAttr/>
+<Text>
+<![CDATA[打印]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+<WidgetAttr/>
+<Text>
+<![CDATA[输出]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true"/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Email">
+<WidgetAttr disabled="true"/>
+<Text>
+<![CDATA[邮件]]></Text>
+<IconName>
+<![CDATA[email]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.write.ShowCellValue">
+<WidgetAttr/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<SelectedColor/>
+</WebWriteContent>
+<Background name="NullBackground"/>
+<CacheValidateTime>
+<![CDATA[0]]></CacheValidateTime>
+</ReportWebAttr>
+<ReportExportAttr>
+<ExcelExportAttr/>
+<HTMLExportAttr isTDHeavy="true"/>
+</ReportExportAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="8.267992125984252" height="10.94496062992126"/>
+<Margin top="0.07874015748031496" left="0.0" bottom="0.07874015748031496" right="0.0"/>
+</ReportSettings>
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[62,24,25,24,24,24,40,37,27,22,22,22,22,22,22,22,22,22,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[11,42,91,96,37,95,86,140,111,66,66,84,72]]></ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="11" s="0">
+<O>
+<![CDATA[客户资料管理卡]]></O>
+<Expand/>
+</C>
+<C c="1" r="1" cs="2" s="1">
+<O>
+<![CDATA[* 客户名称]]></O>
+<Expand/>
+</C>
+<C c="3" r="1" cs="3" s="2">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="客户名称"/>
+<WidgetAttr/>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+</Widget>
+</C>
+<C c="6" r="1" s="2">
+<O>
+<![CDATA[地址]]></O>
+<Expand/>
+</C>
+<C c="7" r="1" s="2">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="地址"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="8" r="1" s="2">
+<O>
+<![CDATA[* 客户编号]]></O>
+<Expand/>
+</C>
+<C c="9" r="1" s="2">
+<O>
+<![CDATA[]]></O>
+<CellGUIAttr printContent="false"/>
+<Expand/>
+<CellInsertPolicy/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="客户编号"/>
+<WidgetAttr/>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<TextAttr allowBlank="false"/>
+</Widget>
+<CellPageAttr/>
+</C>
+<C c="10" r="1" s="2">
+<O>
+<![CDATA[邮编]]></O>
+<Expand/>
+</C>
+<C c="11" r="1" s="3">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="邮编"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.PostCardReg"/>
+</Widget>
+</C>
+<C c="1" r="2" cs="2" s="4">
+<O>
+<![CDATA[负责人]]></O>
+<Expand/>
+</C>
+<C c="3" r="2" s="5">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="负责人"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="4" r="2" s="5">
+<O>
+<![CDATA[性别]]></O>
+<Expand/>
+</C>
+<C c="5" r="2" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.RadioGroup">
+<WidgetName name="性别"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="男" value="男"/>
+<Dict key="女" value="女"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="6" r="2" s="5">
+<O>
+<![CDATA[年龄]]></O>
+<Expand/>
+</C>
+<C c="7" r="2" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="年龄"/>
+<WidgetAttr/>
+<NumberAttr allowDecimals="false" allowNegative="false" minValue="0.0" maxValue="120.0"/>
+</Widget>
+</C>
+<C c="8" r="2" s="5">
+<O>
+<![CDATA[职务]]></O>
+<Expand/>
+</C>
+<C c="9" r="2" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="职务"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="10" r="2" s="5">
+<O>
+<![CDATA[电话]]></O>
+<Expand/>
+</C>
+<C c="11" r="2" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="电话"/>
+<WidgetAttr/>
+<TextAttr/>
+<Reg class="com.fr.report.web.ui.reg.PhoneReg"/>
+</Widget>
+</C>
+<C c="1" r="3" rs="3" s="4">
+<O>
+<![CDATA[金\\n融\\n情\\n况]]></O>
+<CellGUIAttr showAsImage="true"/>
+<Expand/>
+<CellInsertPolicy/>
+<CellPageAttr/>
+</C>
+<C c="2" r="3" s="5">
+<O>
+<![CDATA[往来银行]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.ComboCheckBox">
+<WidgetName name="往来银行"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="1" vi="1"/>
+<Formula>
+<![CDATA[SELECT * FROM 往来银行]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+</Dictionary>
+<RAAttr isArray="false" delimiter="&apos;,&apos;"/>
+</Widget>
+</C>
+<C c="4" r="3" cs="2" s="5">
+<O>
+<![CDATA[现金情况]]></O>
+<Expand/>
+</C>
+<C c="6" r="3" cs="2" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="现金情况"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="8" r="3" s="5">
+<O>
+<![CDATA[承办人]]></O>
+<Expand/>
+</C>
+<C c="9" r="3" cs="3" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="承办人"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="2" r="4" s="5">
+<O>
+<![CDATA[账号]]></O>
+<Expand/>
+</C>
+<C c="3" r="4" s="5">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="账号"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="4" r="4" cs="2" s="5">
+<O>
+<![CDATA[资金周转]]></O>
+<Expand/>
+</C>
+<C c="6" r="4" cs="2" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="资金周转"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="盈利" value="盈利"/>
+<Dict key="亏损" value="亏损"/>
+<Dict key="充裕" value="充裕"/>
+<Dict key="缺乏" value="缺乏"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="8" r="4" s="5">
+<O>
+<![CDATA[付款态度]]></O>
+<Expand/>
+</C>
+<C c="9" r="4" cs="3" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="付款态度"/>
+<WidgetAttr/>
+<Editable>
+<![CDATA[false]]></Editable>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="优" value="优"/>
+<Dict key="良" value="良"/>
+<Dict key="好" value="好"/>
+<Dict key="差" value="差"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="2" r="5" s="5">
+<O>
+<![CDATA[税号]]></O>
+<Expand/>
+</C>
+<C c="3" r="5" cs="5" s="5">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="税号"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="8" r="5" s="5">
+<O>
+<![CDATA[付款日期]]></O>
+<Expand/>
+</C>
+<C c="9" r="5" cs="3" s="7">
+<Expand/>
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="付款日期"/>
+<WidgetAttr/>
+<DateAttr start="" end=""/>
+</Widget>
+</C>
+<C c="1" r="6" cs="2" s="4">
+<O>
+<![CDATA[开始交易日期]]></O>
+<Expand/>
+</C>
+<C c="3" r="6" cs="4" s="8">
+<Expand/>
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="开始交易日期"/>
+<WidgetAttr/>
+<DateAttr start="" end=""/>
+</Widget>
+</C>
+<C c="7" r="6" s="5">
+<O>
+<![CDATA[主营产品]]></O>
+<Expand/>
+</C>
+<C c="8" r="6" cs="4" s="6">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.CheckBoxGroup">
+<WidgetName name="主营产品"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.DatabaseDictionary">
+<FormulaDictAttr ki="1" vi="1"/>
+<DBDictAttr tableName="产品项目" schemaName="" ki="1" vi="1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+</Dictionary>
+<RAAttr isArray="false" delimiter="&apos;,&apos;"/>
+</Widget>
+</C>
+<C c="12" r="6">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+</C>
+<C c="1" r="7" rs="7" s="4">
+<O>
+<![CDATA[营\\n业\\n概\\n况]]></O>
+<CellGUIAttr showAsImage="true"/>
+<Expand/>
+<CellInsertPolicy/>
+<CellPageAttr/>
+</C>
+<C c="2" r="7" s="5">
+<O>
+<![CDATA[营业项目]]></O>
+<Expand/>
+</C>
+<C c="3" r="7" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TreeComboBoxEditor">
+<WidgetName name="营业项目"/>
+<WidgetAttr/>
+<Editable>
+<![CDATA[false]]></Editable>
+<TreeAttr/>
+<TreeNodeAttr>
+<Dictionary class="com.fr.data.impl.DatabaseDictionary">
+<FormulaDictAttr ki="1" vi="1">
+<Condition class="com.fr.data.condition.ListCondition"/>
+</FormulaDictAttr>
+<DBDictAttr tableName="产品项目" schemaName="" ki="1" vi="1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</Dictionary>
+</TreeNodeAttr>
+<TreeNodeAttr>
+<Dictionary class="com.fr.data.impl.DynamicSQLDict">
+<FormulaDictAttr ki="0" vi="0">
+<Condition class="com.fr.data.condition.ListCondition"/>
+</FormulaDictAttr>
+<Formula>
+<![CDATA[SELECT 营业项目 FROM 产品项目 where 主营产品='${@1}' ]]></Formula>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
+</Connection>
+</Dictionary>
+</TreeNodeAttr>
+</Widget>
+</C>
+<C c="4" r="7" cs="2" s="5">
+<O>
+<![CDATA[仓库情况]]></O>
+<Expand/>
+</C>
+<C c="6" r="7" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="仓库情况"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="7" r="7" s="5">
+<O>
+<![CDATA[员工人数及素质]]></O>
+<Expand/>
+</C>
+<C c="8" r="7" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="员工人数及素质"/>
+<WidgetAttr/>
+<NumberAttr allowDecimals="false" allowNegative="false"/>
+</Widget>
+</C>
+<C c="9" r="7" s="5">
+<O>
+<![CDATA[运输方式]]></O>
+<Expand/>
+</C>
+<C c="10" r="7" cs="2" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.CheckBoxGroup">
+<WidgetName name="运输方式"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="铁路" value="铁路"/>
+<Dict key="水运" value="水运"/>
+<Dict key="汽运" value="汽运"/>
+<Dict key="自提" value="自提"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="2" r="8" s="5">
+<O>
+<![CDATA[经营体制]]></O>
+<Expand/>
+</C>
+<C c="3" r="8" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="经营体制"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="合同雇佣制" value="合同雇佣制"/>
+<Dict key="职务工资制" value="职务工资制"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="4" r="8" cs="2" s="5">
+<O>
+<![CDATA[服务车数目]]></O>
+<Expand/>
+</C>
+<C c="6" r="8" s="5">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="服务车数目"/>
+<WidgetAttr/>
+<NumberAttr allowDecimals="false" allowNegative="false"/>
+</Widget>
+</C>
+<C c="7" r="8" s="5">
+<O>
+<![CDATA[零售商数及覆盖情况]]></O>
+<Expand/>
+</C>
+<C c="8" r="8" cs="4" s="6">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="零售商数及覆盖情况"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="2" r="9" s="5">
+<O>
+<![CDATA[批发商数]]></O>
+<Expand/>
+</C>
+<C c="3" r="9" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetAttr/>
+<NumberAttr allowDecimals="false" allowNegative="false"/>
+</Widget>
+</C>
+<C c="4" r="9" cs="2" s="5">
+<O>
+<![CDATA[营业范围]]></O>
+<Expand/>
+</C>
+<C c="6" r="9" s="9">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="营业范围"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="7" r="9" s="5">
+<O>
+<![CDATA[门市面积]]></O>
+<Expand/>
+</C>
+<C c="8" r="9" cs="4" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="门市面积"/>
+<WidgetAttr/>
+<NumberAttr allowNegative="false"/>
+</Widget>
+</C>
+<C c="2" r="10" s="5">
+<O>
+<![CDATA[经营方针]]></O>
+<Expand/>
+</C>
+<C c="3" r="10" cs="9" s="10">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.CheckBoxGroup">
+<WidgetName name="经营方针"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="销售上量" value="销售上量"/>
+<Dict key="利润为准" value="利润为准"/>
+<Dict key="量利兼顾" value="量利兼顾"/>
+<Dict key="积极" value="积极"/>
+<Dict key="保守" value="保守"/>
+<Dict key="平常" value="平常"/>
+<Dict key="投机" value="投机"/>
+<Dict key="凌乱" value="凌乱"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="2" r="11" rs="3" s="5">
+<O>
+<![CDATA[年度销售潜力]]></O>
+<Expand/>
+</C>
+<C c="3" r="11" s="5">
+<O>
+<![CDATA[进货]]></O>
+<Expand/>
+</C>
+<C c="4" r="11" cs="3" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="进货"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="7" r="11" rs="3" s="5">
+<O>
+<![CDATA[第一品牌]]></O>
+<Expand/>
+</C>
+<C c="8" r="11" s="5">
+<O>
+<![CDATA[进货]]></O>
+<Expand/>
+</C>
+<C c="9" r="11" cs="3" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="第一品牌进货"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="3" r="12" s="5">
+<O>
+<![CDATA[销售]]></O>
+<Expand/>
+</C>
+<C c="4" r="12" cs="3" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="销售"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="8" r="12" s="5">
+<O>
+<![CDATA[销售]]></O>
+<Expand/>
+</C>
+<C c="9" r="12" cs="3" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="第一品牌销售"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="3" r="13" s="5">
+<O>
+<![CDATA[存货]]></O>
+<Expand/>
+</C>
+<C c="4" r="13" cs="3" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E12 - E13]]></Attributes>
+</O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="8" r="13" s="5">
+<O>
+<![CDATA[存货]]></O>
+<Expand/>
+</C>
+<C c="9" r="13" cs="3" s="6">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=J12 - J13]]></Attributes>
+</O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="第一品牌存货"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="1" r="14" cs="2" s="4">
+<O>
+<![CDATA[最高信用额度]]></O>
+<Expand/>
+</C>
+<C c="3" r="14" cs="4" s="9">
+<O>
+<![CDATA[]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="最高信用额度"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="7" r="14" s="5">
+<O>
+<![CDATA[客户等级]]></O>
+<Expand/>
+</C>
+<C c="8" r="14" cs="4" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.ComboBox">
+<WidgetName name="客户等级"/>
+<WidgetAttr/>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="一级" value="一级"/>
+<Dict key="二级" value="二级"/>
+<Dict key="三级" value="三级"/>
+<Dict key="四级" value="四级"/>
+</CustomDictAttr>
+</Dictionary>
+</Widget>
+</C>
+<C c="1" r="15" cs="2" s="4">
+<O>
+<![CDATA[总体月均库存数]]></O>
+<Expand/>
+</C>
+<C c="3" r="15" cs="4" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E14 / 12]]></Attributes>
+</O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="7" r="15" s="5">
+<O>
+<![CDATA[月均库存数]]></O>
+<Expand/>
+</C>
+<C c="8" r="15" cs="4" s="6">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=J14 / 12]]></Attributes>
+</O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="月均库存数"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="1" r="16" cs="2" s="4">
+<O>
+<![CDATA[价格/折扣]]></O>
+<Expand/>
+</C>
+<C c="3" r="16" cs="4" s="5">
+<Expand/>
+<Widget class="com.fr.report.web.ui.NumberEditor">
+<WidgetName name="折扣"/>
+<WidgetAttr/>
+<NumberAttr/>
+</Widget>
+</C>
+<C c="7" r="16" cs="2" s="5">
+<O>
+<![CDATA[支持和服务的承诺]]></O>
+<Expand/>
+</C>
+<C c="9" r="16" cs="3" s="6">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextEditor">
+<WidgetName name="承诺"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+<C c="1" r="17" cs="2" s="11">
+<O>
+<![CDATA[竞品经营情况]]></O>
+<Expand/>
+</C>
+<C c="3" r="17" cs="9" s="12">
+<Expand/>
+<Widget class="com.fr.report.web.ui.TextArea">
+<WidgetName name="竞品经营情况"/>
+<WidgetAttr/>
+<TextAttr/>
+</Widget>
+</C>
+</CellElementList>
+<ReportWriteAttr>
+<Submiter class="com.fr.report.write.BuiltInSQLSubmiter" name="内置SQL1">
+<Attributes dsName="FRDemo"/>
+<DMLConfig class="com.fr.report.write.config.IntelliDMLConfig">
+<Table schema="" name="填报雇员表"/>
+<ColumnConfig name="客户编号" isKey="true" skipUnmodified="false">
+<ColumnRow column="9" row="1"/>
+</ColumnConfig>
+<ColumnConfig name="客户名称" isKey="true" skipUnmodified="false">
+<ColumnRow column="3" row="1"/>
+</ColumnConfig>
+<ColumnConfig name="地址" isKey="false" skipUnmodified="false">
+<ColumnRow column="7" row="1"/>
+</ColumnConfig>
+<ColumnConfig name="邮编" isKey="false" skipUnmodified="false">
+<ColumnRow column="11" row="1"/>
+</ColumnConfig>
+<ColumnConfig name="负责人" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="性别" isKey="false" skipUnmodified="false">
+<ColumnRow column="5" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="年龄" isKey="false" skipUnmodified="false">
+<ColumnRow column="7" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="职务" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="电话" isKey="false" skipUnmodified="false">
+<ColumnRow column="11" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="来往银行" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="3"/>
+</ColumnConfig>
+<ColumnConfig name="账号" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="4"/>
+</ColumnConfig>
+<ColumnConfig name="税号" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="5"/>
+</ColumnConfig>
+<ColumnConfig name="现今情况" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="3"/>
+</ColumnConfig>
+<ColumnConfig name="资金周转" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="4"/>
+</ColumnConfig>
+<ColumnConfig name="承办人员" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="3"/>
+</ColumnConfig>
+<ColumnConfig name="付款态度" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="4"/>
+</ColumnConfig>
+<ColumnConfig name="付款日期" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="5"/>
+</ColumnConfig>
+<ColumnConfig name="开始交易日期" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="6"/>
+</ColumnConfig>
+<ColumnConfig name="主营产品" isKey="false" skipUnmodified="false">
+<ColumnRow column="8" row="6"/>
+</ColumnConfig>
+<ColumnConfig name="营业项目" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="7"/>
+</ColumnConfig>
+<ColumnConfig name="经营体制" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="8"/>
+</ColumnConfig>
+<ColumnConfig name="批发商数" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="9"/>
+</ColumnConfig>
+<ColumnConfig name="经营方针" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="10"/>
+</ColumnConfig>
+<ColumnConfig name="进货" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="11"/>
+</ColumnConfig>
+<ColumnConfig name="销售" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="12"/>
+</ColumnConfig>
+<ColumnConfig name="存货" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="13"/>
+</ColumnConfig>
+<ColumnConfig name="第一品牌进货" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="11"/>
+</ColumnConfig>
+<ColumnConfig name="第一品牌销售" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="12"/>
+</ColumnConfig>
+<ColumnConfig name="第一品牌存货" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="13"/>
+</ColumnConfig>
+<ColumnConfig name="最高信用额度" isKey="false" skipUnmodified="false">
+<ColumnRow column="1" row="14"/>
+</ColumnConfig>
+<ColumnConfig name="总体月均库存" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="15"/>
+</ColumnConfig>
+<ColumnConfig name="价格/折扣" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="竞品经营情况" isKey="false" skipUnmodified="false">
+<ColumnRow column="3" row="17"/>
+</ColumnConfig>
+<ColumnConfig name="客户等级" isKey="false" skipUnmodified="false">
+<ColumnRow column="8" row="14"/>
+</ColumnConfig>
+<ColumnConfig name="月均库存数" isKey="false" skipUnmodified="false">
+<ColumnRow column="8" row="15"/>
+</ColumnConfig>
+<ColumnConfig name="支持和服务的承诺" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="16"/>
+</ColumnConfig>
+<ColumnConfig name="服务车数量" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="8"/>
+</ColumnConfig>
+<ColumnConfig name="仓储情况" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="7"/>
+</ColumnConfig>
+<ColumnConfig name="员工人数及素质" isKey="false" skipUnmodified="false">
+<ColumnRow column="8" row="7"/>
+</ColumnConfig>
+<ColumnConfig name="零售商数及覆盖情况" isKey="false" skipUnmodified="false">
+<ColumnRow column="8" row="8"/>
+</ColumnConfig>
+<ColumnConfig name="门市面积" isKey="false" skipUnmodified="false">
+<ColumnRow column="8" row="9"/>
+</ColumnConfig>
+<ColumnConfig name="营业范围" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="9"/>
+</ColumnConfig>
+<ColumnConfig name="运输方式" isKey="false" skipUnmodified="false">
+<ColumnRow column="10" row="7"/>
+</ColumnConfig>
+</DMLConfig>
+</Submiter>
+</ReportWriteAttr>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="黑体" style="0" size="20" foreground="-8355712"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="6" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="6" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="6" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="6" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="6" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="6" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="6" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="6" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="6" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="6" color="-14117142"/>
+<Left style="6" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="6" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="6" color="-14117142"/>
+</Border>
+</Style>
+</StyleList>
+</WorkBook>

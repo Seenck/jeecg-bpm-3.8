@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+				[<!ENTITY joa SYSTEM  "qy.xml">]>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Jeecg 微云快速开发平台</display-name>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>jeecg-qiye-3.8</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:spring-*.xml</param-value>
+	</context-param>
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<!-- Rest风格url对应的controller支持延迟加载-->
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<description>字符集过滤器</description>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<description>字符集编码</description>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>resouceFilter</filter-name>
+		<filter-class>org.springframework.web.filter.ResouceEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>resouceFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- CORS 解决跨域请求问题 （暂时注释掉提高平台性能，需要此功能，可以放开注释）
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.jeecgframework.core.filter.CORSFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>-->
+	
+	<listener>
+		<description>Introspector缓存清除监听器</description>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<listener>
+		<description>spring监听器</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<description>request监听器</description>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<listener>
+		<description>系统初始化监听器</description>
+		<listener-class>org.jeecgframework.web.system.listener.InitListener</listener-class>
+	</listener>
+	<listener>
+		<description>在线用户监听器</description>
+		<listener-class>org.jeecgframework.web.system.listener.OnlineListener</listener-class>
+	</listener>
+
+	<servlet>
+		<description>spring mvc servlet</description>
+		<servlet-name>springMvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<description>spring mvc 配置文件</description>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springMvc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springMvc</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	
+
+	<!-- 集成cxf webservice接口（暂时注释掉提高平台性能，需要此功能，可以放开注释）
+	 <servlet>  
+        <description>Apache CXF Endpoint</description>  
+        <display-name>cxf</display-name>  
+        <servlet-name>cxf</servlet-name>  
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>  
+        <load-on-startup>2</load-on-startup>  
+    </servlet>  
+    <servlet-mapping>  
+        <servlet-name>cxf</servlet-name>  
+        <url-pattern>/cxf/*</url-pattern>  
+    </servlet-mapping> 
+     -->
+     
+	<!-- druid -->
+	<filter>
+		<filter-name>druidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>/css/*,/context/*,/plug-in/*,/plug-in-ui/*,*.js,*.css,*.gif ,*.jpg,*.png,*. ico,*/druid*,/attached/*,/upload/*,/webpage/*,/swagger/*,*.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>druidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>druidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>druidStatView</servlet-name>
+		<url-pattern>/webpage/system/druid/*</url-pattern>
+	</servlet-mapping>
+	<!-- druid -->
+	
+	<!-- 验证码 -->
+    <servlet>
+        <servlet-name>RandCodeImage</servlet-name>
+        <servlet-class>org.jeecgframework.web.system.servlet.RandCodeImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RandCodeImage</servlet-name>
+        <url-pattern>/randCodeImage</url-pattern>
+    </servlet-mapping>
+    
+  <!-- FineReport -->	
+  <servlet>
+    <servlet-name>ReportServer</servlet-name>
+    <servlet-class>com.fr.web.ReportServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ReportServer</servlet-name>
+    <url-pattern>/ReportServer</url-pattern>
+  </servlet-mapping>
+  <!-- FineReport -->
+   
+    <!-- 本地磁盘图片访问API(支持浏览器缓存)： img/server/{?} -->
+    <servlet>
+        <servlet-name>imgServerServlet</servlet-name>
+        <servlet-class>org.jeecgframework.web.system.servlet.ImgServerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>imgServerServlet</servlet-name>
+        <url-pattern>/img/server/*</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>imgServerServlet</servlet-name>
+        <url-pattern>/img-online/server/*</url-pattern>
+    </servlet-mapping>
+    
+	<!-- 404错误页面 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/webpage/common/404.htm</location>
+    </error-page>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	
+	<!-- 首页 -->
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.busbase_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.busbase_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.busbaseList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.busbaseList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processFormHome_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processFormHome_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processFormView_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processFormView_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processIframe_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processIframe_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processPic_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processPic_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processpro_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processpro_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processproList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processproList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processTabs_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processTabs_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processUpload_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.processUpload_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.selectProcess_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.process.selectProcess_jsp</servlet-class>
+    </servlet>
+
+    
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.login.login_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.login.login_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.form.demo_002dform_002dadd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.form.demo_002dform_002dadd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizForm_002dadd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizForm_002dadd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizForm_002dupdate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizForm_002dupdate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizFormList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizFormList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.process_002dhis_002dtab_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.process_002dhis_002dtab_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dapply_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dapply_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dform_002dhis_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dform_002dhis_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dform_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dform_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dindex_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dindex_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dmyapply_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dmyapply_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002doperate_002dhis_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002doperate_002dhis_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002doperate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002doperate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002drunning_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002drunning_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dtab_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dtab_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.viewProcessInstanceHistory_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.viewProcessInstanceHistory_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.viewProcessInstanceHistory2_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.workflow.mobile.app.task.viewProcessInstanceHistory2_jsp</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.busbase_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/busbase.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.busbaseList_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/busbaseList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processFormHome_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processFormHome.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processFormView_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processFormView.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processIframe_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processIframe.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processList_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processPic_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processPic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processpro_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processpro.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processproList_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processproList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processTabs_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processTabs.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.processUpload_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/processUpload.jsp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.process.selectProcess_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/process/selectProcess.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.login.login_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/login/login.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.form.demo_002dform_002dadd_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/form/demo-form-add.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizForm_002dadd_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/biz/tPMobileBizForm-add.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizForm_002dupdate_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/biz/tPMobileBizForm-update.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.biz.tPMobileBizFormList_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/biz/tPMobileBizFormList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.process_002dhis_002dtab_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/process-his-tab.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dapply_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-apply.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dform_002dhis_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-form-his.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dform_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-form.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dindex_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dmyapply_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-myapply.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002doperate_002dhis_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-operate-his.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002doperate_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-operate.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002drunning_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-running.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.task_002dtab_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/task-tab.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.viewProcessInstanceHistory_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/viewProcessInstanceHistory.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.workflow.mobile.app.task.viewProcessInstanceHistory2_jsp</servlet-name>
+        <url-pattern>/webpage/workflow/mobile/app/task/viewProcessInstanceHistory2.jsp</url-pattern>
+    </servlet-mapping>
+
+    
+ <!-- 流程设计器 -->
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.addCandidateGroup_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.addCandidateGroup_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.addCandidateUser_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.addCandidateUser_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.boundaryEventProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.boundaryEventProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.businessRuleTaskProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.businessRuleTaskProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.candidateGroupsConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.candidateGroupsConfig_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.candidateUsersConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.candidateUsersConfig_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.errorBoundaryEventProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.errorBoundaryEventProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.eventProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.eventProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.flowListenerConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.flowListenerConfig_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.flowProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.flowProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.gatewayProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.gatewayProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.index_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.index_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.listenerList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.listenerList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.mailTaskProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.mailTaskProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.processListenerConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.processListenerConfig_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.processpro_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.processpro_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.processProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.processProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.receiveTaskProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.receiveTaskProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.scriptTaskProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.scriptTaskProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.serviceTaskProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.serviceTaskProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.subProcessProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.subProcessProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.taskFormConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.taskFormConfig_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.taskListenerConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.taskListenerConfig_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.taskProperties_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.taskProperties_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.designer.taskVariableConfig_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.designer.taskVariableConfig_jsp</servlet-class>
+    </servlet>
+
+	<servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.addCandidateGroup_jsp</servlet-name>
+        <url-pattern>/webpage/designer/addCandidateGroup.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.addCandidateUser_jsp</servlet-name>
+        <url-pattern>/webpage/designer/addCandidateUser.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.boundaryEventProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/boundaryEventProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.businessRuleTaskProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/businessRuleTaskProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.candidateGroupsConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/candidateGroupsConfig.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.candidateUsersConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/candidateUsersConfig.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.errorBoundaryEventProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/errorBoundaryEventProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.eventProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/eventProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.flowListenerConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/flowListenerConfig.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.flowProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/flowProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.gatewayProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/gatewayProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.index_jsp</servlet-name>
+        <url-pattern>/webpage/designer/index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.listenerList_jsp</servlet-name>
+        <url-pattern>/webpage/designer/listenerList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.mailTaskProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/mailTaskProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.processListenerConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/processListenerConfig.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.processpro_jsp</servlet-name>
+        <url-pattern>/webpage/designer/processpro.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.processProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/processProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.receiveTaskProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/receiveTaskProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.scriptTaskProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/scriptTaskProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.serviceTaskProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/serviceTaskProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.subProcessProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/subProcessProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.taskFormConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/taskFormConfig.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.taskListenerConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/taskListenerConfig.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.taskProperties_jsp</servlet-name>
+        <url-pattern>/webpage/designer/taskProperties.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.designer.taskVariableConfig_jsp</servlet-name>
+        <url-pattern>/webpage/designer/taskVariableConfig.jsp</url-pattern>
+    </servlet-mapping>
+    
+    <!-- 自定义表单 -->
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dadd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dadd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002derror_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002derror_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002dadd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002dadd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002daddorupdate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002daddorupdate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002dupdate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002dupdate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dsuccess_002dmobile_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dsuccess_002dmobile_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dsuccess_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dsuccess_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dupdate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dupdate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dview_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dview_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDataListList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDataListList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dadd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dadd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dupdate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dupdate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dview_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dview_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldForJavaList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldForJavaList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldForTableList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldForTableList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormDbList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormEnhanceJava_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormEnhanceJava_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormEnhanceJs_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormEnhanceJs_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormParamForJavaList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormParamForJavaList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormParamList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormParamList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormStyle_002dadd_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormStyle_002dadd_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormStyle_002dupdate_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormStyle_002dupdate_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormStyleList_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.webpage.jeecg.autoform.autoFormStyleList_jsp</servlet-class>
+    </servlet>
+	
+	  <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dadd_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-add.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002derror_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-error.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002dadd_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-review-add.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002daddorupdate_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-review-addorupdate.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_002dupdate_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-review-update.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dreview_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-review.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dsuccess_002dmobile_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-success-mobile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dsuccess_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-success.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dupdate_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-update.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoForm_002dview_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoForm-view.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDataListList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDataListList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dadd_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDb-add.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dupdate_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDb-update.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDb_002dview_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDb-view.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldForJavaList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDbFieldForJavaList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldForTableList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDbFieldForTableList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbFieldList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDbFieldList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormDbList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormDbList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormEnhanceJava_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormEnhanceJava.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormEnhanceJs_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormEnhanceJs.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormParamForJavaList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormParamForJavaList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormParamList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormParamList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormStyle_002dadd_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormStyle-add.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormStyle_002dupdate_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormStyle-update.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.webpage.jeecg.autoform.autoFormStyleList_jsp</servlet-name>
+        <url-pattern>/webpage/jeecg/autoform/autoFormStyleList.jsp</url-pattern>
+    </servlet-mapping>
+
+</web-app>
